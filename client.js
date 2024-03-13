@@ -30,6 +30,15 @@ async function updateIssue(issue) {
   }
 }
 
+async function deleteIssue() {
+  try {
+    const response = await axios.delete(baseURL);
+    console.log("Delete Issue Response:", response.data);
+  } catch (error) {
+    console.error("Error deleting issue:", error.response.data);
+  }
+}
+
 // Example
 const newIssue = {
   id: 1,
@@ -40,3 +49,4 @@ const newIssue = {
 createIssue(newIssue);
 readIssue();
 updateIssue({ ...newIssue, description: "This issue is updated" });
+deleteIssue();
