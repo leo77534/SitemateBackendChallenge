@@ -12,7 +12,16 @@ async function createIssue(issue) {
   }
 }
 
-// Example usage
+async function readIssue() {
+  try {
+    const response = await axios.get(baseURL);
+    console.log("Read Issue:", response.data);
+  } catch (error) {
+    console.error("Error reading issue:", error.response.data);
+  }
+}
+
+// Example
 const newIssue = {
   id: 1,
   title: "First Issue",
@@ -20,3 +29,4 @@ const newIssue = {
 };
 
 createIssue(newIssue);
+readIssue();
