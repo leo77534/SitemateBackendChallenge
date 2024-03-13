@@ -24,6 +24,12 @@ app.put("/api/issues", (req, res) => {
   res.json({ message: "Issue updated successfully", issue });
 });
 
+app.delete("/api/issues", (req, res) => {
+  console.log("Deleted Issue:", issue);
+  issue = null;
+  res.json({ message: "Issue deleted successfully" });
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
