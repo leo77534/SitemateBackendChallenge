@@ -21,6 +21,15 @@ async function readIssue() {
   }
 }
 
+async function updateIssue(issue) {
+  try {
+    const response = await axios.put(baseURL, issue);
+    console.log("Update Issue Response:", response.data);
+  } catch (error) {
+    console.error("Error updating issue:", error.response.data);
+  }
+}
+
 // Example
 const newIssue = {
   id: 1,
@@ -30,3 +39,4 @@ const newIssue = {
 
 createIssue(newIssue);
 readIssue();
+updateIssue({ ...newIssue, description: "This issue is updated" });
