@@ -8,6 +8,10 @@ const port = 3000;
 // Middleware
 app.use(bodyParser.json());
 
+app.get("/api/issues", (req, res) => {
+  res.json(issue);
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
